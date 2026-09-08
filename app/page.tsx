@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 
 const portfolio = [
@@ -47,16 +50,22 @@ function Bottle({ label = 'OWNMARK' }: { label?: string }) {
 }
 
 export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <main>
       <nav className="nav shell" aria-label="Main navigation">
-        <Link className="wordmark" href="#top">OWNMARK</Link>
-        <div className="nav-links">
-          <Link href="#insight">The insight</Link>
-          <Link href="#work">Portfolio</Link>
-          <Link href="#process">Process</Link>
+        <Link className="wordmark" href="#top" onClick={closeMenu}>OWNMARK</Link>
+        <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>
+          <span>{menuOpen ? 'Close' : 'Menu'}</span><i aria-hidden="true" />
+        </button>
+        <div className={`nav-links ${menuOpen ? 'is-open' : ''}`} id="mobile-navigation">
+          <Link href="#insight" onClick={closeMenu}>The insight</Link>
+          <Link href="#work" onClick={closeMenu}>Portfolio</Link>
+          <Link href="#process" onClick={closeMenu}>Process</Link>
         </div>
-        <Link className="nav-cta" href="#contact">Start with your brand <span>↗</span></Link>
+        <Link className="nav-cta" href="#contact" onClick={closeMenu}>Start with your brand <span>↗</span></Link>
       </nav>
 
       <section className="hero shell" id="top">
