@@ -9,7 +9,9 @@
   --font-serif: 'Times New Roman', 'Iowan Old Style', serif;
 }
 
-:root { --paper: #eeeae2; --paper-deep: #ded9ce; --ink: #1f2923; --muted: #68716a; --rust: #9b593e; --line: rgba(31, 41, 35, .22); --dark: #28352e; color-scheme: light; }\n:root[data-theme='dark'] { --paper: #17201b; --paper-deep: #253129; --ink: #eeeae2; --muted: #a6b0a8; --rust: #c87d5d; --line: rgba(238, 234, 226, .22); --dark: #0f1512; color-scheme: dark; }
+:root { --paper: #eeeae2; --paper-deep: #ded9ce; --ink: #1f2923; --muted: #68716a; --rust: #9b593e; --line: rgba(31, 41, 35, .22); --dark: #28352e; color-scheme: light; }
+
+:root[data-theme='dark'] { --paper: #17201b; --paper-deep: #253129; --ink: #eeeae2; --muted: #a6b0a8; --rust: #c87d5d; --line: rgba(238, 234, 226, .22); --dark: #0f1512; color-scheme: dark; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--paper); }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, 'Helvetica Neue', sans-serif; }
