@@ -87,4 +87,29 @@ body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opa
 .contact::before { content: ''; position: absolute; width: 340px; height: 340px; right: 12%; top: 50%; border: 1px solid rgba(238,234,226,.2); border-radius: 50%; transform: translateY(-50%); }
 .contact-copy, .contact-mark { position: relative; z-index: 1; }
 .footer { border-top: 1px solid var(--line); }
+/* Premium finish: softer geometry, deeper contrast, and intentional spacing. */
+:root { --paper: #f3f0e9; --paper-deep: #e4ded3; --ink: #18221d; --muted: #69736b; --rust: #a55e42; --line: rgba(24, 34, 29, .16); --dark: #203229; }
+:root[data-theme='dark'] { --paper: #121b17; --paper-deep: #223129; --ink: #f3f0e9; --muted: #aeb8b0; --rust: #d48a68; --line: rgba(243, 240, 233, .18); --dark: #0a110e; }
+body { letter-spacing: -.005em; }
+.nav { min-height: 84px; border-bottom-color: color-mix(in srgb, var(--line) 80%, var(--rust)); }
+.wordmark { letter-spacing: .2em; }
+.hero { gap: clamp(42px, 6vw, 100px); }
+.hero-copy { padding: 16px 0; }
+.hero-art { border-radius: 28px; box-shadow: 0 28px 80px rgba(24,34,29,.12); }
+.hero-art::before { inset: 18px; border-radius: 18px; }
+.table-disc { background: #b9ad9b; box-shadow: 0 28px 40px rgba(24,34,29,.18); }
+.button { border-radius: 999px; padding: 17px 24px 17px 26px; }
+.section-grid, .portfolio { border-top-color: color-mix(in srgb, var(--line) 82%, var(--rust)); }
+.insight, .doing, .reasons, .audience, .process, .portfolio { padding-bottom: clamp(112px, 12vw, 170px); }
+.section-grid::after { top: 30px; right: 2px; }
+.portfolio-card { min-height: 420px; border-radius: 22px; }
+.portfolio-card img { filter: saturate(.66) contrast(1.08); }
+.portfolio-card::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(243,240,233,.24); border-radius: inherit; z-index: 2; pointer-events: none; }
+.portfolio-card:hover { transform: translateY(-10px) rotate(-.4deg); }
+.portfolio-card:nth-child(2):hover { transform: translateY(-10px) rotate(.4deg); }
+.portfolio-meta { left: 0; right: 0; padding: 70px 25px 23px; }
+.contact { border-radius: 28px; padding: clamp(58px, 7vw, 92px); }
+.contact::before { width: 420px; height: 420px; right: 8%; border-color: rgba(243,240,233,.16); }
+.footer { min-height: 180px; }
+.footer > div:last-child { display: flex; flex-direction: column; gap: 8px; text-align: right; }
 @media (max-width: 760px) { .shell { width: min(100% - 36px, 1240px); }.nav { min-height: 72px; position: relative; gap: 14px; }.wordmark { flex: 0 0 auto; font-size: 15px; }.nav-actions { margin-left: auto; gap: 14px; flex: 0 0 auto; }.theme-toggle span { display: none; }.theme-toggle { padding: 10px 0; }.theme-toggle i { width: 23px; }.menu-toggle { display: block; margin: 0; padding: 10px 0; }.nav-cta { display: none; }.nav-links { display: none; position: absolute; left: 0; right: 0; top: 72px; z-index: 10; padding: 22px 0 26px; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 16px 24px rgba(31,41,35,.08); }.nav-links.is-open { display: flex; }.nav-links a { font-size: 11px; padding: 2px 0; }.hero { display: flex; flex-direction: column; align-items: stretch; padding: 56px 0 60px; }.hero-art { height: 390px; order: -1; }.hero-art .bottle-wrap { bottom: 40px; transform: translateX(-50%) scale(.82) rotate(5deg); transform-origin: bottom center; }.table-disc { width: 520px; height: 200px; bottom: 32px; }.art-note { top: 25px; left: 24px; font-size: 9px; }.art-index { right: 20px; bottom: 16px; }.hero-copy { padding-bottom: 30px; }.hero-intro { margin: 24px 0 32px; }.button { max-width: 100%; padding: 16px 18px; line-height: 1.35; }.section-grid, .portfolio-heading { grid-template-columns: 1fr; gap: 35px; }.insight-content { grid-template-columns: 1fr; gap: 25px; }.insight-text { max-width: none; }.steps-row, .service-list, .portfolio-grid, .reason-list, .audience-list, .process-list { grid-template-columns: 1fr; }.reason:nth-child(5) { max-width: none; }.portfolio-heading { margin-bottom: 45px; }.portfolio-card { min-height: 330px; }.contact { width: 100%; padding: 70px 30px; display: block; }.contact-mark { margin-top: 80px; text-align: left; }.footer { padding: 30px 0; align-items: flex-start; gap: 35px; flex-direction: column; }.insight, .doing, .reasons, .audience, .process, .portfolio { padding-bottom: 100px; }.large-copy { margin: 60px 0; font-size: 24px; } }
