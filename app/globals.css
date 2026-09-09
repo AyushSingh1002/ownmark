@@ -217,4 +217,31 @@ body { background: var(--paper); }
   .footer { min-height: 0; padding: 42px 0; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+/* Night mode refinement: midnight ink, mineral blue, and warm brass accents. */
+:root[data-theme='dark'] {
+  --paper: #101722;
+  --paper-deep: #1a2635;
+  --ink: #f4f1e9;
+  --muted: #aeb9c7;
+  --rust: #d8b477;
+  --line: rgba(244, 241, 233, .18);
+  --dark: #080d15;
+}
+:root[data-theme='dark'] body { background: var(--paper); }
+:root[data-theme='dark'] .nav { background: color-mix(in srgb, var(--paper) 88%, transparent); }
+:root[data-theme='dark'] .hero-art { background: var(--paper-deep); border-color: rgba(216, 180, 119, .28); box-shadow: 0 26px 70px rgba(0, 0, 0, .28); }
+:root[data-theme='dark'] .hero-art::before { border-color: rgba(244, 241, 233, .17); }
+:root[data-theme='dark'] .table-disc { background: #394656; }
+:root[data-theme='dark'] .button { background: var(--rust); color: #111722; box-shadow: 0 12px 26px rgba(216, 180, 119, .16); }
+:root[data-theme='dark'] .button:hover { background: #ebca91; color: #080d15; box-shadow: 0 16px 34px rgba(216, 180, 119, .25); }
+:root[data-theme='dark'] .button.light { background: var(--ink); color: #101722; }
+:root[data-theme='dark'] .button.light:hover { background: var(--rust); }
+:root[data-theme='dark'] .audience-tabs button:hover,
+:root[data-theme='dark'] .audience-tabs button.is-active { background: var(--rust); border-color: var(--rust); color: #111722; }
+:root[data-theme='dark'] .back-to-top { background: var(--paper-deep); color: var(--ink); border-color: rgba(216, 180, 119, .45); }
+:root[data-theme='dark'] .contact { background: #080d15; }
+:root[data-theme='dark'] .contact-copy > p:not(.eyebrow) { color: #b9c4d0; }
+:root[data-theme='dark'] .footer { border-top-color: var(--line); }
+.button:focus-visible, .theme-toggle:focus-visible, .menu-toggle:focus-visible, .audience-tabs button:focus-visible, .faq-item button:focus-visible, .text-action:focus-visible, .back-to-top:focus-visible { outline: 2px solid var(--rust); outline-offset: 4px; }
 @media (max-width: 760px) { .shell { width: min(100% - 36px, 1240px); }.nav { min-height: 72px; position: relative; gap: 14px; }.wordmark { flex: 0 0 auto; font-size: 15px; }.nav-actions { margin-left: auto; gap: 14px; flex: 0 0 auto; }.theme-toggle span { display: none; }.theme-toggle { padding: 10px 0; }.theme-toggle i { width: 23px; }.menu-toggle { display: block; margin: 0; padding: 10px 0; }.nav-cta { display: none; }.nav-links { display: none; position: absolute; left: 0; right: 0; top: 72px; z-index: 10; padding: 22px 0 26px; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 16px 24px rgba(31,41,35,.08); }.nav-links.is-open { display: flex; }.nav-links a { font-size: 11px; padding: 2px 0; }.hero { display: flex; flex-direction: column; align-items: stretch; padding: 56px 0 60px; }.hero-art { height: 390px; order: -1; }.hero-art .bottle-wrap { bottom: 40px; transform: translateX(-50%) scale(.82) rotate(5deg); transform-origin: bottom center; }.table-disc { width: 520px; height: 200px; bottom: 32px; }.art-note { top: 25px; left: 24px; font-size: 9px; }.art-index { right: 20px; bottom: 16px; }.hero-copy { padding-bottom: 30px; }.hero-intro { margin: 24px 0 32px; }.button { max-width: 100%; padding: 16px 18px; line-height: 1.35; }.section-grid, .portfolio-heading { grid-template-columns: 1fr; gap: 35px; }.insight-content { grid-template-columns: 1fr; gap: 25px; }.insight-text { max-width: none; }.steps-row, .service-list, .portfolio-grid, .reason-list, .audience-list, .process-list { grid-template-columns: 1fr; }.reason:nth-child(5) { max-width: none; }.portfolio-heading { margin-bottom: 45px; }.portfolio-card { min-height: 330px; }.contact { width: 100%; padding: 70px 30px; display: block; }.contact-mark { margin-top: 80px; text-align: left; }.footer { padding: 30px 0; align-items: flex-start; gap: 35px; flex-direction: column; }.insight, .doing, .reasons, .audience, .process, .portfolio { padding-bottom: 100px; }.large-copy { margin: 60px 0; font-size: 24px; } }
