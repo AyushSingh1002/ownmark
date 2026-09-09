@@ -113,6 +113,16 @@ body { letter-spacing: -.005em; }
 .footer { min-height: 180px; }
 .footer > div:last-child { display: flex; flex-direction: column; gap: 8px; text-align: right; }
 
+/* Utility actions: small details that make the page easier to use. */
+.contact-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.text-action, .footer-email { border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.text-action { font-size: 10px; letter-spacing: .13em; text-transform: uppercase; padding: 10px 0; }
+.text-action span { color: var(--rust); font-size: 18px; margin-left: 7px; }
+.text-action:hover, .footer-email:hover { color: var(--rust); }
+.footer-email { display: block; padding: 0; text-align: right; }
+.back-to-top { position: fixed; right: 24px; bottom: 24px; z-index: 14; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--ink); box-shadow: 0 10px 24px rgba(24,34,29,.14); font-size: 20px; transition: transform .25s ease, color .25s ease, border-color .25s ease; }
+.back-to-top:hover { transform: translateY(-4px); color: var(--rust); border-color: var(--rust); }
+
 /* Art-directed finish: gallery-like rhythm, soft stone tones, and consistent geometry. */
 :root { --paper: #f6f3ed; --paper-deep: #e8e1d7; --ink: #17211c; --muted: #758078; --rust: #ad6548; --line: rgba(23, 33, 28, .14); --dark: #1c2d26; --radius-lg: 30px; --radius-md: 18px; }
 :root[data-theme='dark'] { --paper: #111a16; --paper-deep: #202f28; --ink: #f5f1e9; --muted: #aab5ad; --rust: #dc9270; --line: rgba(245, 241, 233, .17); --dark: #09110d; }

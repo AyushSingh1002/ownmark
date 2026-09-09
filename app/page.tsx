@@ -37,9 +37,22 @@ function Bottle({ label = 'OWNMARK' }: { label?: string }) {
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [dark, setDark] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const [showTop, setShowTop] = useState(false)
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? 'dark' : 'light'
   }, [dark])
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 640)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText('hello.onmark.support@gmail.com')
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1800)
+  }
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('.reveal-on-scroll')
     const observer = new IntersectionObserver((entries) => {
@@ -73,7 +86,7 @@ export default function Page() {
     <section className="reasons shell section-grid reveal-on-scroll"><div className="section-label"><span>04</span><span>WHY BRANDED WATER</span></div><div className="reasons-content"><h2>More <em>than water.</em></h2><div className="reason-list">{reasons.map(([title, copy]) => <div className="reason" key={title}><h3>{title}</h3><p>{copy}</p></div>)}</div></div></section>
     <section className="audience shell section-grid reveal-on-scroll"><div className="section-label"><span>05</span><span>WHO IT&apos;S FOR</span></div><div className="audience-content"><h2>Built for <em>hospitality.</em></h2><div className="audience-list">{audiences.map(([title, copy]) => <div key={title}><h3>{title}</h3><p>{copy}</p></div>)}</div><p className="closing-line">One idea. Different environments.</p></div></section>
     <section className="process shell section-grid reveal-on-scroll" id="process"><div className="section-label"><span>06</span><span>THE PROCESS</span></div><div className="process-content"><h2>Simple from start<br /><em>to finish.</em></h2><div className="process-list">{process.map(([num, title, copy]) => <div className="process-step" key={num}><span>{num}</span><div><h3>{title}</h3><p>{copy}</p></div></div>)}</div></div></section>
-    <section className="contact shell reveal-on-scroll" id="contact"><div className="contact-copy"><p className="eyebrow">07 / LET&apos;S WORK TOGETHER</p><h2>Let&apos;s put your brand<br /><em>on the table.</em></h2><p>Send us your logo and tell us about your business. We&apos;ll show you what your branded bottle could look like.</p><Link className="button light" href="mailto:hello.onmark.support@gmail.com">Start with your brand <span>↗</span></Link></div><div className="contact-mark">OWN<br />MARK</div></section>
-    <footer className="footer shell"><div><strong>OWNMARK</strong><span>Your brand. Every table.</span></div><div><a href="tel:+917269021785">+91 72690 21785</a><a href="mailto:hello.onmark.support@gmail.com">hello.onmark.support@gmail.com</a><span>Lucknow, India</span></div></footer>
+    <section className="contact shell reveal-on-scroll" id="contact"><div className="contact-copy"><p className="eyebrow">07 / LET&apos;S WORK TOGETHER</p><h2>Let&apos;s put your brand<br /><em>on the table.</em></h2><p>Send us your logo and tell us about your business. We&apos;ll show you what your branded bottle could look like.</p><div className="contact-actions"><Link className="button light" href="mailto:hello.onmark.support@gmail.com?subject=OWNMARK%20brand%20enquiry">Start with your brand <span>↗</span></Link><button className="text-action light-action" type="button" onClick={copyEmail}>{copied ? 'Email copied' : 'Copy email address'} <span>＋</span></button></div></div><div className="contact-mark">OWN<br />MARK</div></section>
+    <footer className="footer shell"><div><strong>OWNMARK</strong><span>Your brand. Every table.</span></div><div><a href="tel:+917269021785">+91 72690 21785</a><button className="footer-email" type="button" onClick={copyEmail}>{copied ? 'Email copied' : 'hello.onmark.support@gmail.com'}</button><span>Lucknow, India</span></div></footer>{showTop && <a className="back-to-top" href="#top" aria-label="Back to top">↑</a>}
   </main>
 }
